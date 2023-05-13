@@ -4,6 +4,8 @@ import { dirname } from 'path';
 import bodyParser from "body-parser";
 import https from "node:https";
 
+const APIKey = process.env.API_KEY;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -19,7 +21,7 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
      const city = req.body.cityInput;
-     const apiKey = "859c9cbcb4224a838c092713231204";
+     const apiKey = APIKey;
      const url = "https://api.weatherapi.com/v1/current.json?q=" + city + "&key=" + apiKey;
      https.get(url, function(response) {
           response.on("data", function(data) {
