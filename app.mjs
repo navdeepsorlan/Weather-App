@@ -3,6 +3,8 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import bodyParser from "body-parser";
 import https from "node:https";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const APIKey = process.env.API_KEY;
 
@@ -35,6 +37,6 @@ app.post('/', function(req, res) {
      });
 })
 
-app.listen(port, function() {
+app.listen(process.env.PORT, function() {
      console.log("server is running on port " + port);
 });
