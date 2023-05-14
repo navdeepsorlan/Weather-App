@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
      const city = req.body.cityInput;
-     const apiKey = APIKey;
+     const apiKey = "859c9cbcb4224a838c092713231204";
      const url = "https://api.weatherapi.com/v1/current.json?q=" + city + "&key=" + apiKey;
      https.get(url, function(response) {
           response.on("data", function(data) {
